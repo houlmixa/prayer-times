@@ -25,11 +25,8 @@ async function fetchPrayerTimes() {
       console.log(`--- ${result.cityName} ---`);
       console.log(`Fajr: ${result.timings.Fajr}`);
       console.log(`Sunrise: ${result.timings.Sunrise}`);
-      console.log(`First Third: ${result.timings.Firstthird}`);
       console.log(`Last Third: ${result.timings.Lastthird}`);
-      
-      // Example: document.getElementById(result.cityName).innerHTML = ...
-    
+          
       results.forEach(result => {
         const card = document.getElementById(result.cityName);
         if (!card) return; // Failsafe if you misspelled an ID
@@ -37,7 +34,6 @@ async function fetchPrayerTimes() {
         // Update the specific spans inside that card
         card.querySelector('.val-fajr').innerText = result.timings.Fajr;
         card.querySelector('.val-sunrise').innerText = result.timings.Sunrise;
-        card.querySelector('.val-firstthird').innerText = result.timings.Firstthird;
         card.querySelector('.val-lastthird').innerText = result.timings.Lastthird;
       });
     });
