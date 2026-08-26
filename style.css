@@ -1,0 +1,52 @@
+/* Reset and basic typography */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: #f4f4f5; color: #18181b; }
+header { text-align: center; padding: 2rem 1rem; }
+
+/* The Mobile-First Container */
+.city-container {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  /* This creates the native-feeling mobile swipe */
+  scroll-snap-type: x mandatory; 
+  /* Hides the ugly scrollbar but keeps functionality */
+  scrollbar-width: none; 
+}
+.city-container::-webkit-scrollbar { display: none; }
+
+/* The Card */
+.city-card {
+  /* 85% width on mobile so the next card "peeks" in */
+  flex: 0 0 85%; 
+  scroll-snap-align: center;
+  
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.city-card h2 { margin-bottom: 1rem; border-bottom: 2px solid #e4e4e7; padding-bottom: 0.5rem; }
+
+/* The Time Rows */
+.time-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+.time-row span:last-child { font-weight: bold; }
+
+/* The Desktop Override */
+@media (min-width: 800px) {
+  .city-container {
+    justify-content: center;
+    overflow-x: visible;
+  }
+  .city-card {
+    /* Divide evenly into 4 columns, minus the gaps */
+    flex: 1 1 0; 
+  }
+}
